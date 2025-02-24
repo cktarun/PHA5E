@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP Navbar Animation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: black;
+            z-index: 1000;
+        }
+
+        .menu-icon {
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .menu {
+            position: fixed;
+            top: -100vh; /* Start hidden above screen */
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .close-icon {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">STUDIO PHA5E</div>
+        <div class="menu-icon" onclick="openMenu()">☰</div>
+    </nav>
+
+    <div class="menu" id="menu">
+        <div class="close-icon" onclick="closeMenu()">✖</div>
+        <a href="#">HOME</a>
+        <a href="#">OUR VISION</a>
+        <a href="#">OUR TEAM</a>
+        <a href="#">OUR PROJECTS</a>
+        <a href="#">CONTACT US</a>
+    </div>
+
+    <script>
+        function openMenu() {
+            let menu = document.getElementById('menu');
+
+            gsap.to(menu, { top: 0, duration: 0.7, ease: "power3.out" }); // Slide down
+            gsap.fromTo(
+                document.querySelectorAll(".menu a"), 
+                { opacity: 0, y: 30 },
+                { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: "power2.out" }
+            );
+        }
+
+        function closeMenu() {
+            let menu = document.getElementById('menu');
+
+            gsap.to(document.querySelectorAll(".menu a"), { 
+                opacity: 0, y: -30, duration: 0.3, stagger: 0.1, ease: "power2.in"
+            }); // Fade out links upwards
+            
+            gsap.to(menu, { top: "-100vh", duration: 0.7, ease: "power3.in", delay: 0.3 }); // Slide up after text animation
+        }
+    </script>
+
+</body>
+</html>
