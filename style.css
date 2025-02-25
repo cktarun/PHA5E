@@ -22,7 +22,7 @@ body{
 
 #loader-text {
   font-family: "Druk Wide Bold", sans-serif;
-  font-size: 5vw;
+  font-size: 6vw;
   color: transparent;
   -webkit-text-stroke: 0.5px white; /* Initial stroke effect */
   text-transform: uppercase;
