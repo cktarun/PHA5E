@@ -8,6 +8,26 @@
 body{
   overflow-x: hidden;
 }
+/* Loader Styles */
+#loader {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#loader-text {
+  font-family: "Druk Wide Bold", sans-serif;
+  font-size: 5vw;
+  color: transparent;
+  -webkit-text-stroke: 0.5px white; /* Initial stroke effect */
+  text-transform: uppercase;
+}
+
 #main{
     width: 100%;
     height: 100%;
@@ -71,6 +91,7 @@ body{
     width: 40px;
     padding: 0px 6px;
     cursor: pointer;
+
   }
 
   /* Responsivness Adjustments */
@@ -103,7 +124,7 @@ body{
     #menu-items a {
       font-family: 'Druk Wide Bold', sans-serif;
       padding: 15px 20px;
-      font-size: 25px;
+      font-size: 30px;
     }
   
     #menu-icon {
@@ -260,6 +281,10 @@ body{
   }
   
   @media (max-width: 768px) {
+    #loader {
+      height: 100vh;
+      margin-top: -10%;
+    }
     #nav{
       padding: 10px 0px; 
     }
