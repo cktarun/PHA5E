@@ -8,6 +8,27 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
+
+// Loader Animation
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.to("#loader-text", {
+    duration: 0.5,
+    delay: 1,
+    color: "white", 
+    "-webkit-text-stroke": "0px", 
+    ease: "power2.out",
+    onComplete: () => {
+      gsap.to("#loader", {
+        duration: 1,
+        opacity: 0,
+        display: "none",
+        onComplete: () => {
+        },
+      });
+    },
+  });
+});
+
 // -------------------------------------------------------------------------------------------------
 
 // animation for the menu
@@ -68,9 +89,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const headingTexts = document.querySelectorAll(".heading h1");
   
   gsap.fromTo(
-    images,
-    { scale: 0.5, opacity: 0 },
-    { scale: 1, opacity: 1, duration: 1, ease: "power2.out", stagger: 0.5 }
+    images,{ 
+      scale: 0.5,
+      opacity: 0
+     },
+    { 
+      scale: 1, 
+      opacity: 1, 
+      duration: 1, 
+      ease: "power2.out", 
+      stagger: 0.5,
+      delay: 2 }
   );
   
   gsap.fromTo(
@@ -80,6 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
       clipPath: "inset(100% 0 0 0)", 
     },
     {
+      delay: 2,
       y: 0,
       opacity: 1,
       clipPath: "inset(0% 0 0 0)",
@@ -105,7 +135,7 @@ if(isMobile()){
           otherImg.parentElement.style.boxShadow = "0 0 1px .5px gray"; // Add outline
         }
       });
-
+      
       gsap.to(headingTexts, {
         opacity: 0.5,
         duration: 0,
