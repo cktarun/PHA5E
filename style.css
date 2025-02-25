@@ -281,9 +281,6 @@ body{
   }
   
   @media (max-width: 768px) {
-    #loader {
-      margin-top: -10%;
-    }
     #nav{
       padding: 10px 0px; 
     }
