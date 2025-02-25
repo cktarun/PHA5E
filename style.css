@@ -70,7 +70,7 @@ body{
   .closenav img{
     width: 40px;
     padding: 0px 6px;
-
+    cursor: pointer;
   }
 
   /* Responsivness Adjustments */
@@ -269,6 +269,7 @@ body{
     #nav a{
       padding: 0px 20px;
       margin-top: 30px;
+      text-transform: uppercase;
     }
     .heading {
       margin-top: 100px;
