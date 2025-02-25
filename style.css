@@ -281,6 +281,9 @@ body{
   }
   
   @media (max-width: 768px) {
+    #hero{
+      min-height: 100vh;
+    }
     #nav{
       padding: 10px 0px; 
     }
